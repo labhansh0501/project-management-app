@@ -2,7 +2,7 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  imaes: {
+  images: {
     remotePatterns : [
       {
         protocol : "https",
