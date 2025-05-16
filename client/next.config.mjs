@@ -8,7 +8,7 @@ const nextConfig = {
         protocol : "https",
         hostname : "products3-images.s3.eu-north-1.amazonaws.com",
         port: "",
-        patname : "/**",
+        pathname : "/**",
       }
     ]
   }
