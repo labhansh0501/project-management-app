@@ -45,7 +45,7 @@ const formFileds = {
 
 const AuthProvider = ({ children }: any) => {
   return (
-    <div className="mt-5">
+    <div>
       <Authenticator formFields={formFileds}>
         {({ user }: any) =>
           user ? (
