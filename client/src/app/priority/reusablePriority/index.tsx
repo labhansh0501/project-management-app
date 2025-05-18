@@ -8,7 +8,7 @@ import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import {
   Priority,
   Task,
-  //   useGetAuthUserQuery,
+  useGetAuthUserQuery,
   useGetTasksByUserQuery,
 } from "@/state/api";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
@@ -63,13 +63,13 @@ const columns: GridColDef[] = [
     field: "author",
     headerName: "Author",
     width: 150,
-    renderCell: (params) => params.value?.author ||"Unknown",
+    renderCell: (params) => params.value.username || "Unknown",
   },
   {
     field: "assignee",
     headerName: "Assignee",
     width: 150,
-    renderCell: (params) => params.value?.assignee || "Unassigned",
+    renderCell: (params) => params.value.username || "Unassigned",
   },
 ];
 
@@ -77,14 +77,14 @@ const ReusablePriorityPage = ({ priority }: Props) => {
   const [view, setView] = useState("list");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
-  const userId = 1;
-
+  const { data: currentUser } = useGetAuthUserQuery({});
+  const userId = currentUser?.userDetails?.userId ?? null;
   const {
     data: tasks,
     isLoading,
-    isError: isTaskError,
+    isError: isTasksError,
   } = useGetTasksByUserQuery(userId || 0, {
-    skip: userId == null,
+    skip: userId === null,
   });
 
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
@@ -93,7 +93,7 @@ const ReusablePriorityPage = ({ priority }: Props) => {
     (task: Task) => task.priority === priority,
   );
 
-  if (isTaskError || !tasks) return <div>Error fetching tasks</div>;
+  if (isTasksError || !tasks) return <div>Error fetching tasks</div>;
 
   return (
     <div className="m-5 p-4">
