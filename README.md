@@ -27,7 +27,27 @@ A simple and intuitive Project Management web application to manage tasks, teams
 ## 📸 Screenshots
 <!-- Add screenshots/gifs here -->
 <!-- Example -->
-<!-- ![Dashboard View](./screenshots/dashboard.png) -->
+## 📸 Screenshots
+
+### Dashboard View
+![Dashboard](./screenshots/dashboard.png)
+
+### Drag and Drop Feature
+![Drag and Drop](./screenshots/drag-drop.gif)
+
+### Task Board View
+![Task Board](./screenshots/board.png)
+
+
+### Team View
+![Task Board](./screenshots/Teams.png)
+
+### Timeline View
+![Task Board](./screenshots/Timeline.png)
+
+### Users View
+![Task Board](./screenshots/Users.png)
+
 
 ---
 
